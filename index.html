@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMQ - Transportes Molina y Quiñones</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* CONFIGURACIÓN GENERAL */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #000; color: white; overflow-x: hidden; scroll-behavior: smooth; }
+
+        /* VIDEO DE FONDO FIJO */
+        .video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translateX(-50%) translateY(-50%);
+            filter: brightness(0.35); /* Oscurece el video para resaltar el texto */
+            object-fit: cover;
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .main-container { position: relative; z-index: 1; }
+
+        /* SECCIONES */
+        section {
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh;
+            text-align: center;
+        }
+
+        /* HERO - SECCIÓN DE INICIO */
+        .hero { min-height: 100vh; }
+        
+        .logo { 
+            max-width: 380px; 
+            margin-bottom: 40px;
+            /* Mejora de visibilidad para el logo contra el video oscuro */
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5)); 
+            padding: 10px;
+        }
+
+        h1 { font-size: 3.5rem; text-transform: uppercase; margin-bottom: 20px; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
+        .hero p { font-size: 1.5rem; max-width: 800px; color: #f0f0f0; margin-bottom: 40px; }
+
+        /* TARJETAS DE SERVICIOS */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .service-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.12); border-color: #ff9800; }
+        .service-card i { font-size: 2.8rem; color: #ff9800; margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: #fff; }
+        .service-card p { font-size: 1.1rem; color: #ddd; line-height: 1.6; }
+
+        /* SECCIÓN "POR QUÉ ELEGIR TMQ" */
+        .why-us { background: rgba(0, 0, 0, 0.6); }
+        .why-us h2 { font-size: 2.8rem; margin-bottom: 50px; text-transform: uppercase; }
+
+        /* BOTÓN DE WHATSAPP A LA DERECHA */
+        .whatsapp-fixed {
+            position: fixed;
+            right: 30px; 
+            bottom: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .whatsapp-fixed:hover { transform: scale(1.15); }
+
+        /* FOOTER / PIE DE PÁGINA */
+        footer {
+            padding: 60px 20px;
+            background: #000;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        footer h3 { margin-bottom: 20px; font-size: 1.8rem; }
+        .contact-info { font-size: 1.4rem; color: #ff9800; text-decoration: none; font-weight: bold; }
+
+        /* RESPONSIVO */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .logo { max-width: 280px; }
+            .service-card { padding: 30px; }
+        }
+
+        @keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+        .scroll-down { animation: bounce 2s infinite; font-size: 2.5rem; margin-top: 30px; opacity: 0.7; }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="video-background">
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
+    <div class="main-container">
+        
+        <section class="hero">
+            <img src="logo.png" alt="Transportes Molina y Quiñones Logo" class="logo">
+            <h1>Tu Socio en Logística de Confianza y Refrigerado</h1>
+            <p>Transportes Molina y Quiñones SPA - Soluciones a medida con flota moderna y segura en todo el territorio nacional.</p>
+            <div class="scroll-down"><i class="fas fa-chevron-down"></i></div>
+        </section>
+
+        <section id="servicios">
+            <h2 style="font-size: 2.8rem; margin-bottom: 20px;">Servicios Integrales</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-truck-moving"></i>
+                    <h3>Logística Capilar</h3>
+                    <p>Expertos en distribución y última milla. Llevamos sus productos directamente al cliente final con eficiencia[cite: 1].</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-snowflake"></i>
+                    <h3>Transporte Refrigerado</h3>
+                    <p>Contamos con equipos <strong>HT-050RT</strong>. Garantizamos la cadena de frío para frutas, carnes y productos perecederos[cite: 1].</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Cobertura Nacional</h3>
+                    <p>Llegamos a cualquier rincón del país, asegurando que su carga llegue siempre a su destino[cite: 1].</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="why-us">
+            <h2>Por qué elegir TMQ</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-history"></i>
+                    <h3>Puntualidad Garantizada</h3>
+                    <p>Entregas a tiempo siempre. Valoramos el tiempo de su empresa y de sus clientes[cite: 1].</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Flota Moderna</h3>
+                    <p>Vehículos equipados con la última tecnología en seguridad y transporte refrigerado[cite: 1].</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Soluciones a Medida</h3>
+                    <p>Adaptamos nuestra logística a las necesidades específicas de su negocio[cite: 1].</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <h3>Contacto y Reservas</h3>
+            <p style="margin-bottom: 15px; font-size: 1.1rem; color: #aaa;">Solicite su presupuesto personalizado ahora.</p>
+            <a href="tel:+56965394310" class="contact-info">
+                <i class="fas fa-phone-alt"></i> +56 9 6539 4310
+            </a>
+            <p style="margin-top: 40px; font-size: 0.9rem; color: #555;">&copy; 2026 Transportes Molina y Quiñones SPA</p>
+        </footer>
+
+    </div>
+
+    <a href="https://wa.me/56965394310" class="whatsapp-fixed" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
